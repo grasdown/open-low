@@ -1,0 +1,10 @@
+import yfinance as yf
+
+def check_open_low(symbol):
+    # Mendapatkan data historis saham menggunakan library yfinance
+    stock = yf.Ticker(symbol)
+    history = stock.history(period="1d")
+
+    # Mendapatkan harga pembukaan (open) dan harga rendah (low) terakhir
+    last_open = history["Open"][-1]
+    last_low = history["Low"][-1]
